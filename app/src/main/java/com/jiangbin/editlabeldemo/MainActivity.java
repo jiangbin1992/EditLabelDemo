@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mFlowLayoutTui = findViewById(R.id.mFlowLayout);
         TextView tv = findViewById(R.id.tv);
 
+
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
