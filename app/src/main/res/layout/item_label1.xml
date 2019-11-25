@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/labelTvs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/item_labels_bg"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:hint="输入标签"
+        android:imeOptions="actionGo"
+        android:inputType="text"
+        android:maxEms="15"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:singleLine="true"
+        android:textColor="@color/theme_color"
+        android:textSize="14sp" />
+
+</RelativeLayout>
