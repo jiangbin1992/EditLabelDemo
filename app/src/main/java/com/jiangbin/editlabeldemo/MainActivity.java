@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i=0;i<mFlowLayout.getChildCount()-1;i++){
-                    Logger.d("gggdeleteddddd" +mFlowLayout.getChildAt(i).findViewById(R.id.labelTv).getTag());
+                for (int i = 0; i < mFlowLayout.getChildCount() - 1; i++) {
+                    TextView textView = mFlowLayout.getChildAt(i).findViewById(R.id.labelTv);
+                    Logger.d("gggdeleteddddd" + textView.getText());
                 }
             }
         });
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             View item = mLayoutInflater.inflate(R.layout.item_label1, null);
             tvAttrTagEdittext = item.findViewById(R.id.labelTvs);
-            tvAttrTagEdittext.setTag("添加标签");
             mFlowLayout.addView(item);
             tvAttrTagEdittext.setOnKeyListener(new View.OnKeyListener() {
                 @Override
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                             View item = mLayoutInflater.inflate(R.layout.item_label, null);
                             TextView tvAttrTag = item.findViewById(R.id.labelTv);
                             tvAttrTag.setText(tvAttrTagEdittext.getText().toString());
-                            tvAttrTag.setTag(tvAttrTagEdittext.getText().toString());
                             tvAttrTagEdittext.setText("");
                             tvAttrTagEdittext.setHint("添加标签");
                             tvAttrTagEdittext.clearFocus();
@@ -104,9 +103,8 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
                                             // try {
-                                            Logger.d("gggdelete" + i);
-                                            Logger.d("gggdeleteddddd" + view.findViewById(R.id.labelTv).getTag());
-                                            setNetWorkStatues(String.valueOf(view.findViewById(R.id.labelTv).getTag()));
+                                            TextView textView = view.findViewById(R.id.labelTv);
+                                            setNetWorkStatues(textView.getText().toString());
                                             //mFlowLayout.deleteView(i);
                                             mFlowLayout.removeView(view);
 
@@ -148,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                         View item = mLayoutInflater.inflate(R.layout.item_label, null);
                         TextView tvAttrTag = item.findViewById(R.id.labelTv);
                         tvAttrTag.setText(netWorkList.get(i));
-                        tvAttrTag.setTag(netWorkList.get(i));
                         mFlowLayout.addView(item, mFlowLayout.getChildCount() - 1);
                         view.setSelected(true);
                         return;
@@ -157,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
                             View item = mLayoutInflater.inflate(R.layout.item_label, null);
                             TextView tvAttrTag = item.findViewById(R.id.labelTv);
                             tvAttrTag.setText(netWorkList.get(i));
-                            tvAttrTag.setTag(netWorkList.get(i));
                             mFlowLayout.addView(item, mFlowLayout.getChildCount() - 1);
                             view.setSelected(true);
                         } else {
@@ -183,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean checkmFlowLayout(String value) {
         boolean result = false;
         for (int a = 0; a < mFlowLayout.getChildCount() - 1; a++) {
-            if (value.equals(String.valueOf(mFlowLayout.getChildAt(a).findViewById(R.id.labelTv).getTag()))) {
+            TextView textView = mFlowLayout.getChildAt(a).findViewById(R.id.labelTv);
+            if (value.equals(textView.getText().toString())) {
                 mFlowLayout.deleteView(a);
                 result = false;
                 break;
